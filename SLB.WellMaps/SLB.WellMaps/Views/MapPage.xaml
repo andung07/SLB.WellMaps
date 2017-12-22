@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SLB.WellMaps.Views.MapPage"
+             xmlns:local="clr-namespace:SLB.WellMaps.Configs;assembly=SLB.WellMaps"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             Title="{Binding Title}"
+             IsBusy="{Binding IsBusy}">
+  <ContentPage.Content>
+    <Grid x:Name="mainGrid" Padding="5">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".33*"/>
+        <ColumnDefinition Width=".05*"/>
+        <ColumnDefinition Width=".33*"/>
+        <ColumnDefinition Width=".05*"/>
+        <ColumnDefinition Width=".33*"/>
+      </Grid.ColumnDefinitions>
+
+      <Entry
+        Grid.Row="0"
+        Grid.Column="0"
+        Grid.ColumnSpan="3"
+        Placeholder="Enter Well Name"
+        VerticalOptions="Center"
+        FontSize="Small"
+        Text="{Binding WellName}"/>
+
+      <Button
+        Grid.Row="0"
+        Grid.Column="4"
+        Text="Search"
+        FontSize="Small"
+        VerticalOptions="Center"
+        Command="{Binding SearchCommand}"
+        BackgroundColor="{x:Static local:ColorScheme.primary}"
+        TextColor="{x:Static local:ColorScheme.text}"/>
+
+      <Button
+        Grid.Row="2"
+        Grid.Column="0"
+        Text="Street"
+        FontSize="Small"
+        Command="{Binding StreetCommand}"
+        BackgroundColor="{x:Static local:ColorScheme.primary}"
+        TextColor="{x:Static local:ColorScheme.text}"/>
+
+      <Button
+        Grid.Row="2"
+        Grid.Column="2"
+        Text="Hybrid"
+        FontSize="Small"
+        Command="{Binding HybridCommand}"
+        BackgroundColor="{x:Static local:ColorScheme.primary}"
+        TextColor="{x:Static local:ColorScheme.text}"/>
+
+      <Button
+        Grid.Row="2"
+        Grid.Column="4"
+        Text="Satellite"
+        FontSize="Small"
+        Command="{Binding SatelliteCommand}"
+        BackgroundColor="{x:Static local:ColorScheme.primary}"
+        TextColor="{x:Static local:ColorScheme.text}"/>
+      
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

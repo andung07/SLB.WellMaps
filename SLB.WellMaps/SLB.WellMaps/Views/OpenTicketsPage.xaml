@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SLB.WellMaps.Views.OpenTicketsPage"
+             xmlns:local="clr-namespace:SLB.WellMaps.Configs;assembly=SLB.WellMaps"
+             Title="{Binding Title}">
+  <ContentPage.Content>
+    <Grid>
+      <ListView x:Name="listviewTickets"
+                ItemsSource="{Binding Tickets}"
+                SelectedItem="{Binding SelectedTicket, Mode=TwoWay}"
+                SeparatorColor="{x:Static local:ColorScheme.divider}"
+                SeparatorVisibility="Default"
+                IsVisible="{Binding IsNotBusy}"
+                RowHeight="60">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding ID}"
+                      Detail="{Binding Detail}"
+                      TextColor="{x:Static local:ColorScheme.primary}"
+                      DetailColor="{x:Static local:ColorScheme.secondary_text}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <StackLayout IsVisible="{Binding IsBusy}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" >
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"/>
+        <Label Text="Retrieving Tickets ..."
+               TextColor="{x:Static local:ColorScheme.primary_text}"
+               HorizontalOptions="Center" />
+      </StackLayout>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

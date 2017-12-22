@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SLB.WellMaps.Configs;assembly=SLB.WellMaps"
+             x:Class="SLB.WellMaps.Views.SetupPage"
+             Title="{Binding Title}">
+  <ContentPage.Content>
+    <Grid ColumnSpacing="10" RowSpacing="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <StackLayout Grid.Row="0" Padding="25, 25, 25, 0">
+        <Label Text="URL"
+               TextColor="{x:Static local:ColorScheme.primary}"/>
+        <Entry TextColor="{x:Static local:ColorScheme.secondary_text}"
+               Text="{Binding URL}"/>
+        <Label Text="Alias" 
+               TextColor="{x:Static local:ColorScheme.primary}" IsVisible="True"/>
+        <Entry TextColor="{x:Static local:ColorScheme.secondary_text}" 
+               Text="{Binding UserName}" IsVisible="True"/>
+        <Label Text="Password" 
+               TextColor="{x:Static local:ColorScheme.primary}" IsVisible="True" />
+        <Entry TextColor="{x:Static local:ColorScheme.secondary_text}" 
+               IsPassword="True"
+               Text="{Binding Password}"  IsVisible="True" />
+      </StackLayout>
+      <Button Grid.Row="1"
+              Text="Save"
+              Command="{Binding SaveCommand}"
+              BorderRadius="0"
+              BackgroundColor="{x:Static local:ColorScheme.primary}"
+              TextColor="{x:Static local:ColorScheme.text}"/>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

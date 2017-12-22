@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SLB.WellMaps.Views.TicketDetailPage"
+             xmlns:local="clr-namespace:SLB.WellMaps.Configs;assembly=SLB.WellMaps"
+             Title="{Binding Title}"
+             IsBusy="{Binding IsBusy}">
+  <ContentPage.Content>
+    <ScrollView>      
+      <Grid Padding="10" RowSpacing="10" ColumnSpacing="10"  x:Name="mainGrid">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="250"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width=".3*"/>
+          <ColumnDefinition Width=".05*"/>
+          <ColumnDefinition Width=".3*"/>
+          <ColumnDefinition Width=".05*"/>
+          <ColumnDefinition Width=".3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Text="Navigate"
+            Grid.Row="1"
+            Grid.ColumnSpan="5"
+            IsEnabled="{Binding IsNotBusy}"
+            Command="{Binding NavigateCommand}"
+            BackgroundColor="{x:Static local:ColorScheme.primary}"
+            TextColor="{x:Static local:ColorScheme.text}" />
+
+        <Label
+					Grid.Row="2"
+					Grid.ColumnSpan="5"
+					FontAttributes="Bold"
+					FontSize="Medium"
+					Text="Ticket Detail"
+					TextColor="{x:Static local:ColorScheme.primary}" />
+
+        <Label
+					Grid.Row="3"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="ID"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="3"
+					Grid.Column="2"
+          Grid.ColumnSpan="3"
+					FontSize="Small"
+					Text="{Binding TicketID}"
+					HorizontalOptions="End"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="4"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Location"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="4"
+					Grid.Column="2"
+          Grid.ColumnSpan="3"
+					FontSize="Small"
+					Text="{Binding TicketLocation}"
+					HorizontalOptions="End"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="5"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Job Name"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="5"
+					Grid.Column="2"
+          Grid.ColumnSpan="3"
+					FontSize="Small"
+					Text="{Binding TicketJobName}"
+					HorizontalOptions="End"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="6"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Issue Date"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="6"
+					Grid.Column="2"
+          Grid.ColumnSpan="3"
+					FontSize="Small"
+					Text="{Binding TicketIssueDate}"
+					HorizontalOptions="End"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="7"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Spv. In Charge"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="7"
+					Grid.Column="2"
+          Grid.ColumnSpan="3"
+					FontSize="Small"
+					Text="{Binding TicketSpvInCharge}"
+					HorizontalOptions="End"
+					VerticalOptions="Center"/>
+
+        <Label
+					Grid.Row="8"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Crew In Charge"
+					VerticalOptions="Start"/>
+
+        <StackLayout
+          x:Name="crewHolder"
+          Grid.Row="8"
+          Grid.Column="2"
+          Grid.ColumnSpan="3"/>
+
+        <Label
+					Grid.Row="9"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Last Remark"
+					VerticalOptions="Start"/>
+
+        <Editor
+          Grid.Row="9"
+          Grid.Column="2"
+          Grid.ColumnSpan="3"
+          FontSize="Small"
+          IsEnabled="False"
+          Text="{Binding TicketRemarkHistory}"
+          HeightRequest="100"
+          BackgroundColor="{x:Static local:ColorScheme.primary_light}"/>
+
+        <Label
+					Grid.Row="10"
+					Grid.ColumnSpan="5"
+					FontAttributes="Bold"
+					FontSize="Medium"
+					Text="Ticket Closure"
+					TextColor="{x:Static local:ColorScheme.primary}" />
+
+        <Label
+					Grid.Row="11"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Close Date"
+					VerticalOptions="Center"/>
+
+        <DatePicker
+          Grid.Row="11"
+          Grid.Column="2"
+          Grid.ColumnSpan="3"
+          HorizontalOptions="End"
+          Date="{Binding CloseDate}"
+          WidthRequest="125"/>
+
+        <Label
+					Grid.Row="12"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Close Time"
+					VerticalOptions="Center"/>
+
+        <TimePicker 
+          Grid.Row="12"
+          Grid.Column="2"
+          Grid.ColumnSpan="3"
+          HorizontalOptions="End"
+          WidthRequest="125"
+          Time="{Binding CloseTime}"/>
+        
+        <Label
+					Grid.Row="13"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					FontAttributes="Bold"
+					FontSize="Small"
+					Text="Add Remark"
+					VerticalOptions="Start"/>
+
+        <Editor
+          Grid.Row="13"
+          Grid.Column="2"
+          Grid.ColumnSpan="3"
+          FontSize="Small"
+          HeightRequest="100"
+          BackgroundColor="{x:Static local:ColorScheme.primary_light}"
+          Text="{Binding NewRemark}"/>
+
+        <Button Text="Save &amp; Close This Ticket"
+            Grid.Row="14"
+            Grid.ColumnSpan="5"
+            BackgroundColor="{x:Static local:ColorScheme.primary}"
+            TextColor="{x:Static local:ColorScheme.text}" 
+            Command="{Binding SaveAndCloseCommand}"/>
+
+      </Grid>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SLB.WellMaps.Configs;assembly=SLB.WellMaps"
+             x:Class="SLB.WellMaps.Views.HomePage"
+             Title="{Binding Title}">
+  <ContentPage.Content>
+    <Grid ColumnSpacing="10" RowSpacing="10" Padding="50, 0, 50, 50" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <Image Grid.ColumnSpan="2"
+             HorizontalOptions="Center"
+             VerticalOptions="Center" >
+        <Image.Source>
+          <OnPlatform x:TypeArguments="ImageSource"
+                iOS="Logo.png"
+                Android="Logo.png"
+                WinPhone="Assets/MainLogo.png" />
+        </Image.Source>
+      </Image>
+
+      <Button Text="Open Tickets"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            BackgroundColor="{x:Static local:ColorScheme.primary}"
+            TextColor="{x:Static local:ColorScheme.text}"
+            Command="{Binding NavOpenTicketsPageCmd}"/>
+
+      <Button Text="Map"
+              Grid.Row="2"
+              Grid.ColumnSpan="2"
+              BackgroundColor="{x:Static local:ColorScheme.primary}"
+              TextColor="{x:Static local:ColorScheme.text}"
+              Command="{Binding NavMapPageCmd}"/>
+
+      <Button Text="Setup"
+              Grid.Row="3"
+              Grid.ColumnSpan="2"
+              BackgroundColor="{x:Static local:ColorScheme.primary}"
+              TextColor="{x:Static local:ColorScheme.text}"
+              Command="{Binding NavSetupPageCmd}"/>
+
+      <Button Text="About"
+              Grid.Row="4"
+              Grid.ColumnSpan="2"
+              BackgroundColor="{x:Static local:ColorScheme.primary}"
+              TextColor="{x:Static local:ColorScheme.text}"
+              Command="{Binding NavAboutPageCmd}"/>
+
+      <!--<Entry Text="{Binding URLTest, Mode=TwoWay}"
+              Grid.Row="4"
+              Grid.ColumnSpan="2" />
+      
+      <Button Text="Test URL"
+              Grid.Row="5"
+              Grid.ColumnSpan="2"
+              Command="{Binding TestCommand}"/>-->
+              
+
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>
